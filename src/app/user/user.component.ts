@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+/*import { UserService } from '../_services/index';*/
+import { UserService } from '../_services/user.service';
 
 @Component({
   selector: 'app-user',
@@ -9,27 +11,23 @@ export class UserComponent implements OnInit {
   
   listUserTitle;
   createUserTitle;
-  users = [ 
-  	{firstName:"Muthu kumar", lastName: "Marichamy", email: "muthu.marichamy@microexcel.com"},
-  	{firstName:"Sanush", lastName: "Muthu kumar", email: "sanush@gmail.com"},
-  	{firstName:"Ashwath", lastName: "Muthu kumar", email: "ashwath@gmail.com"},
-  	{firstName:"Kumar", lastName: "Muthu kumar", email: "kumar@gmail.com"}
-  ];
+  users;  
   userModel: any = {};
 
-  constructor() { 
-
+  constructor(private UserService:UserService) { 
+  	console.log('Inside constructore');
   	this.listUserTitle = "User list";
   }
 
   ngOnInit() {
   	this.createUserTitle = "Add User";
+  	this.users = this.UserService.getAllFromArray();  	
   }
 
   createUser() {
-  	console.log(this.userModel);
+  	/*console.log(this.userModel);
   	this.users.push(this.userModel);
-  	this.userModel = {};
+  	this.userModel = {};*/
   }
 
 }
