@@ -5,8 +5,9 @@ import { Http, Headers, RequestOptions, Response } from "@angular/http";
 
 export class UserService {
 	users;
+	private url;
 	constructor(private http: Http) {
-
+		this.url = 'http://45.55.48.150:1347';
 	}
 	getAllFromArray() {
 		return this.users = [ 
@@ -16,4 +17,24 @@ export class UserService {
 		  	{firstName:"Kumar", lastName: "Muthu kumar", email: "kumar@gmail.com"}
 		  ];
 	}
+
+	getUsers() {
+		return this.http.get(this.url+'/listUser?user_type=1',this.jwt()).map((response: Response) => response.json());
+	}
+
+	private jwt() {
+		let currentUserToken = localStorage.getItem('currentUserToken');
+		console.log(currentUserToken);
+		console.log("Current user-->");
+		if(currentUserToken) {
+			let headers = new Headers({ 'Authorization' : 'Bearer ' + currentUserToken});
+			return new RequestOptions({headers: headers });
+		}
+	}
+
+	createUserArray() {
+		
+	}
+
+
 } 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 /*import { UserService } from '../_services/index';*/
-import { UserService } from '../_services/user.service';
+import { UserService } from '../_services/index';
 
 @Component({
   selector: 'app-user',
@@ -14,20 +14,23 @@ export class UserComponent implements OnInit {
   users;  
   userModel: any = {};
 
-  constructor(private UserService:UserService) { 
+  constructor(private UserService:UserService) { 		
   	console.log('Inside constructore');
   	this.listUserTitle = "User list";
   }
 
   ngOnInit() {
-  	this.createUserTitle = "Add User";
-  	this.users = this.UserService.getAllFromArray();  	
+  	this.createUserTitle = "Add User";	
+  	//this.users = this.UserService.getAllFromArray();
+    this.loadUsers();  	
   }
 
-  createUser() {
-  	/*console.log(this.userModel);
+  private createUser() {
   	this.users.push(this.userModel);
-  	this.userModel = {};*/
+  	this.userModel = {};
   }
 
+  private loadUsers() {
+    this.UserService.getUsers().subscribe(data => this.users = data);
+  }
 }
