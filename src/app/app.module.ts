@@ -12,6 +12,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserComponent } from './user/user.component';
 import { routes } from './app.routes';
 import { LoginComponent } from './login/login.component';
+import { CityComponent } from './city/city.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { LoginComponent } from './login/login.component';
     TopBarComponent,
     DashboardComponent,
     UserComponent,
-    LoginComponent
+    LoginComponent,
+    CityComponent
   ],
   imports: [
     BrowserModule,
