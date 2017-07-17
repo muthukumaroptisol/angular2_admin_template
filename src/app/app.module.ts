@@ -13,6 +13,7 @@ import { UserComponent } from './user/user.component';
 import { routes } from './app.routes';
 import { LoginComponent } from './login/login.component';
 import { CityComponent } from './city/city.component';
+import { StateComponent } from './state/state.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CityComponent } from './city/city.component';
     DashboardComponent,
     UserComponent,
     LoginComponent,
-    CityComponent
+    CityComponent,
+    StateComponent
   ],
   imports: [
     BrowserModule,
