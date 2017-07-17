@@ -10,7 +10,7 @@ import { CityService } from '../_services/index';
 export class CityComponent implements OnInit {
   listPageTitle: any;
   createCityTitle: any;
-  city: any = {};
+  cities;
   constructor(private CityService: CityService) { }
 
   ngOnInit() {
@@ -21,6 +21,11 @@ export class CityComponent implements OnInit {
 
   private getCity() {
   	console.log('I am inside the get city');
-  	this.CityService.getCity().subscribe(data => this.city = data);
+  	this.CityService.getCity().subscribe(data =>  { this.cities = data; console.log(this.cities);  });
+  }
+
+  private editCity(cityData) {
+  	console.log(cityData);
+  	// this.CityService.getCityBasedOnId().subscribe(data => this.cities = data);
   }
 }
