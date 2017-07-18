@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CityService } from '../_services/index';
 import { CityComponent } from '../city/city.component';
 
@@ -8,6 +8,8 @@ import { CityComponent } from '../city/city.component';
   styleUrls: ['./city-form.component.css']
 })
 export class CityFormComponent implements OnInit {
+  
+  @Input() name: any;
   cityModel = {
   	"state_id" : 1,
   	"country_id" : 1
@@ -27,5 +29,12 @@ export class CityFormComponent implements OnInit {
   	this.CityService.createCity(this.cityModel).subscribe(city => {
   		this._parentComponent.getCity();  		
   	});
+  }
+  
+  private updateCity(cityData) {
+  	console.log(cityData);
+  	this.CityService.updateCity(cityData).subscribe(data => { 
+  		this._parentComponent.getCity();
+  	});    
   }
 }

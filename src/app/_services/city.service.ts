@@ -17,4 +17,8 @@ export class CityService {
 	createCity(cityModel) {
 		return this.http.post(this.config.apiUrl+'/createCity',cityModel, this.config.jwt()).map((response: Response) => response.json());
 	}
+
+	updateCity(cityModel) {
+		return this.http.put(this.config.apiUrl+'/updateCity?id='+cityModel.id, cityModel, this.config.jwt()).map((response: Response) => response.json());
+	}
 }
