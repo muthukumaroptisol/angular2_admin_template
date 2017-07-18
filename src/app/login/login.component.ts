@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() { }
 
   loginCheck() {
-  	console.log("YYYYYYYYYYYYYYYY");
   	this.AuthService.checkAuthentication(this.loginModel.email,this.loginModel.password)
   	.subscribe(user => {
   		if(user && user.token) {

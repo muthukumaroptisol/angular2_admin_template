@@ -19,7 +19,7 @@ export class CityComponent implements OnInit {
   	this.getCity();
   }
 
-  private getCity() {
+  public getCity() {
   	console.log('I am inside the get city');
   	this.CityService.getCity().subscribe(data =>  { this.cities = data; console.log(this.cities);  });
   }

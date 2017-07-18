@@ -13,4 +13,8 @@ export class CityService {
 	getCity() {
 		return this.http.get(this.config.apiUrl+'/listCity',this.config.jwt()).map((response: Response) => response.json());		
 	}
+
+	createCity(cityModel) {
+		return this.http.post(this.config.apiUrl+'/createCity',cityModel, this.config.jwt()).map((response: Response) => response.json());
+	}
 }

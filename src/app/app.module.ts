@@ -15,6 +15,7 @@ import { LoginComponent } from './login/login.component';
 import { CityComponent } from './city/city.component';
 import { StateComponent } from './state/state.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+import { CityFormComponent } from './city-form/city-form.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
     LoginComponent,
     CityComponent,
     StateComponent,
-    BreadcrumbComponent
+    BreadcrumbComponent,
+    CityFormComponent
   ],
   imports: [
     BrowserModule,
