@@ -33,6 +33,7 @@ export class CityComponent implements OnInit {
   	this.createCityTitle = " Add City ";
     this.labelForAdding = "Add City";
   	this.getCity();
+    this.getCityCount();
   }
 
   private editCity(cityData) {
@@ -44,7 +45,15 @@ export class CityComponent implements OnInit {
 
   public getCity() {
   	console.log('I am inside the get city');
-  	this.CityService.getCity().subscribe(data =>  { this.cities = data; console.log(this.cities);  });
+  	this.CityService.getCity().subscribe(data =>  
+      { 
+        this.cities = data; console.log(this.cities);
+      }, err => console.log(err));
+  }
+
+  // This is checking for observables
+  private getCityCount() {
+    this.CityService.getCityCount().subscribe(data => console.log('OBservanle test-->'+data));
   }
 
   private createCity() {    

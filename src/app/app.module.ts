@@ -17,6 +17,7 @@ import { StateComponent } from './state/state.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { CityFormComponent } from './city-form/city-form.component';
 import { StateDropdownComponent } from './state-dropdown/state-dropdown.component';
+import { CountryComponent } from './country/country.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { StateDropdownComponent } from './state-dropdown/state-dropdown.componen
     StateComponent,
     BreadcrumbComponent,
     CityFormComponent,
-    StateDropdownComponent
+    StateDropdownComponent,
+    CountryComponent
   ],
   imports: [
     BrowserModule,
