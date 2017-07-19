@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule }  from '@angular/router';
 
-import { UserService, AuthenticationService, CityService, Config } from './_services/index';
+import { UserService, AuthenticationService, CityService, Config, StateService } from './_services/index';
 import { AppComponent } from './app.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
@@ -16,6 +16,7 @@ import { CityComponent } from './city/city.component';
 import { StateComponent } from './state/state.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { CityFormComponent } from './city-form/city-form.component';
+import { StateDropdownComponent } from './state-dropdown/state-dropdown.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { CityFormComponent } from './city-form/city-form.component';
     CityComponent,
     StateComponent,
     BreadcrumbComponent,
-    CityFormComponent
+    CityFormComponent,
+    StateDropdownComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,8 @@ import { CityFormComponent } from './city-form/city-form.component';
     UserService,
     AuthenticationService,
     CityService,
-    Config
+    Config,
+    StateService
   ],
   bootstrap: [AppComponent]
 })

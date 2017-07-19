@@ -51,6 +51,11 @@
                                 <input class="form-control" type=text name="cityName" [(ngModel)]="cityModel.city_name" placeholder="Enter city name">
                             </div>
 
+                            <div class="form-group">{{showMessage}}-> From child
+                                <label>Select State</label>
+                                <app-state-dropdown (notify)="onNotifiyClicked($event)" [selectedValueForState] = "cityModel.state_id.id"></app-state-dropdown>
+                            </div>
+    
                             <!-- <div class="form-group">
                                 <label>Select State</label>
                                 <input  type=text name="lastName" class="form-control" [(ngModel)]="userModel.lastName" placeholder="Enter your last name">

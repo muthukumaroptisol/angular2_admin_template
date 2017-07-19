@@ -1,0 +1,8 @@
+Child-->{{selectedValueForState}}
+<!-- <select [(ngModel)]="state_id.id">
+	<option *ngFor="let state of states" value={{state.id}}>{{state.state_name}}</option>
+</select> -->
+
+<select [(ngModel)]="selectedValueForState" (ngModelChange)="onChange($event)">
+	<option *ngFor="let state of states" value={{state.id}}>{{state.state_name}}</option>
+</select>

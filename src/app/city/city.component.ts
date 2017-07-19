@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CityService } from '../_services/index';
+import { State } from '../_model/state';
 //import { CityFormComponent } from '../city-form/city-form.component';
 
 @Component({
@@ -15,6 +16,7 @@ export class CityComponent implements OnInit {
   cities;
   editCityObject: any;
   labelForAdding: string;
+  showMessage: number;
   cityModel = {
     "city_name" : "",
     "state_id" : 1,
@@ -45,29 +47,26 @@ export class CityComponent implements OnInit {
   	this.CityService.getCity().subscribe(data =>  { this.cities = data; console.log(this.cities);  });
   }
 
-  private createCity() {
-    /*console.log('I am in createOrUpdateCity');
-    console.log(this.cityModel);
-    console.log(this.labelForAdding);
-    if(this.labelForAdding === 'Add City') {
-      this.CityService.createCity(this.cityModel).subscribe(city => {
-        this.getCity();      
-      });
-    } else if(this.labelForAdding === 'Edit City') {
-      this.CityService.updateCity(this.cityModel).subscribe(city => {
-        this.getCity();      
-      });
-    }*/
+  private createCity() {    
     this.CityService.createCity(this.cityModel).subscribe(city => {
         this.getCity();      
-      });
-    
+      });    
   }
   
   private updateCity() {
+    console.log(this.cityModel);
    this.CityService.updateCity(this.cityModel).subscribe(data => { 
       this.getCity();
     });    
   }
 
+  public onNotifiyClicked(message:number): void {
+     this.showMessage = message;
+     console.log("onNotifyClicked");
+     this.cityModel.state_id = message;
+     console.log("===========================");
+     console.log(this.showMessage);
+     //console.log(this.cityModel);
+     console.log("===========================");
+  }
 }
